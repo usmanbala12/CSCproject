@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% load static %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="{% static 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     
 </head>
@@ -15,14 +15,14 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'base:dashboard' %}">BUK Bus management system</a>
           {% if request.user.is_authenticated %}
-          <div class='user-side'>
-            <a class="nav-link" href='{% url "base:logout" %}'>Current User:<span class='username'> {{request.user}}</span></a>
-            <a href='{% url "base:logout" %}'><button class="btn btn-danger" >logout</button></a>
+          <div class="user-side">
+            <a class="nav-link" href="{% url 'base:logout' %}">Current User:<span class="username"> {{request.user}}</span></a>
+            <a href="{% url 'base:logout' %}"><button class="btn btn-danger" >logout</button></a>
           </div>   
           {% endif %}
         </div>
       </nav>
-    <div class='main-content'>
+    <div class="main-content">
         {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
