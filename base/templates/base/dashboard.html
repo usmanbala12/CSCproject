@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<div class='dashboard'>
+    <div class="side">
+        <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+            <a class="nav-link" href='{% url "base:dashboard"%}'>Dashboard</a>
+            <a class="nav-link" href='{% url "base:tickets"%}'>Tickets</a>
+            <a class="nav-link" href='{% url "base:vehicles"%}'>Vehicles</a>
+            <a class="nav-link" href='{% url "base:addvehicle"%}'>Add Vehicle</a>
+            <a class="nav-link" href='{% url "base:createticket" %}'>Create Ticket</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class='info-card'>
+            <p>Total Number of tickets sold today</p>
+            <h1>{{tickets}}</h1>
+        </div>
+        <div class='info-card'>
+            <p>total number of vehicles available</p>
+            <h1>{{buses}}
+        </div>
+        <div class='info-card'>
+            <p>Total Number of tickets</p>
+            <h1>{{tickets}}</h1>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base_generic.html'   %}
+{% block content %}
+<form method='POST' action=''>
+<h2>{{ heading }}</h2>
+{% csrf_token %}
+{{ form.as_p }}
+<input class='btn btn-success' type='submit' value='submit'>
+</form>
+{% endblock %}

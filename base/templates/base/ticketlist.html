@@ -1,0 +1,29 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ticket id</th>
+        <th scope="col">vehicle</th>
+        <th scope="col">Person</th>
+        <th scope="col">expires</th>
+        <th scope="col" style="width:5%"></th>
+        <th scope="col" style="width:5%"></th>
+        <th scope="col" style="width:5%"></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for ticket in tickets %}
+      <tr>
+        <th scope="row">{{ticket.id}}</th>
+        <td>{{ ticket.vehicle }}</td>
+        <td>{{ ticket.first_name }} {{ ticket.last_name }}</td>
+        <td>{{ ticket.expiry_date }}</td>
+        <td ><a href='{% url "base:printticket" pk=ticket.id %}'><button class='btn btn-primary'>Print</button></a></td>
+        <td><a href='{% url "base:updateTicket" pk=ticket.id %}'><button class='btn btn-success'>Edit</button></a></td>
+        <td><a href='{% url "base:deleteTicket" pk=ticket.id %}?next={{request.path}}'><button class='btn btn-danger'>delete</button></a></td>
+      </tr>
+    {% endfor %}  
+    </tbody>
+  </table>
+{% endblock %}
