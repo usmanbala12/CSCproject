@@ -29,6 +29,7 @@ import os
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS=["https://cscproject-production.up.railway.app"]
 
 # Application definition
 
