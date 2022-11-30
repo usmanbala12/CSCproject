@@ -16,15 +16,13 @@ def getChoices():
     bus_arr = list(bus_dict.items())
     choices = tuple(bus_arr)
 
-    return choices
-
-print(getChoices())
+    return choices  
       
 
 class TicketForm(forms.Form):
     first_name = forms.CharField(max_length=15, widget=forms.TextInput(attrs={'class':'form-control'}))
     last_name = forms.CharField(max_length=15, widget=forms.TextInput(attrs={'class':'form-control'}))
-    vehicle = forms.ChoiceField(choices=getChoices(), required=True, widget=forms.Select(attrs={'class':'form-control'}))
+    vehicle = forms.ChoiceField(choices=getChoices, required=True, widget=forms.Select(attrs={'class':'form-control'}))
 
 class VehicleForm(ModelForm):
     class Meta:

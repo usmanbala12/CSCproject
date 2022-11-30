@@ -12,14 +12,14 @@ from reportlab.pdfgen import canvas
 import qrcode
 
 # Create your views here.
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def dashboard(request):
     tickets = Ticket.objects.all().count()
     buses = Bus.objects.all().count()
     context = {'tickets': tickets, 'buses': buses}
     return render(request, 'base/dashboard.html', context);
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def createTicket(request):
     if request.method == 'POST':
         form = TicketForm(request.POST)
@@ -38,7 +38,7 @@ def createTicket(request):
     context = {'form': form, 'heading': 'create ticket'}
     return render(request, 'base/form.html', {'form': form})
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def addVehicle(request):
     if request.method == 'POST':
         form = VehicleForm(request.POST)
@@ -55,7 +55,7 @@ def deleteVehicle(request, pk):
     vehicle.delete()
     return redirect('base:dashboard')
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def updateVehicle(request, pk):
     bus = get_object_or_404(Bus, pk=pk)
     if request.method == 'POST':
@@ -67,20 +67,20 @@ def updateVehicle(request, pk):
     context = {'form': form, 'heading': 'update vehicle information'}
     return render(request, 'base/form.html', context)
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def vehicles(request):
     vehicles = Bus.objects.all()
     context = {'vehicles': vehicles}
     return render(request, 'base/vehicleList.html', context)       
         
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def ticketList(request):
     tickets = Ticket.objects.all()
     context = {'tickets': tickets}
     return render(request, 'base/ticketlist.html', context)
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def updateTicket(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
     if request.method == 'POST':
@@ -97,13 +97,13 @@ def updateTicket(request, pk):
     context = {'form': form, 'heading': 'update ticket information'}
     return render(request, 'base/form.html', context)    
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def deleteTicket(request, pk):
     ticket = Ticket.objects.get(id=pk)
     ticket.delete()
     return redirect('dashboard')
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def printTicket(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
 
@@ -158,6 +158,9 @@ def loginPage(request):
   
     context = {}
     return render(request, 'base/login.html', context)
+
+def participantsList(request):
+    return render(request, 'base/participants.html')    
     
 
 def logoutPage(request):

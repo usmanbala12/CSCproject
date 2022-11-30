@@ -15,5 +15,6 @@ urlpatterns = [
     path('deletevehicle/<str:pk>', views.deleteVehicle, name='deleteVehicle'),
     path('updatevehicle/<str:pk>', views.updateVehicle, name='updateVehicle'),
     path('vehicles', views.vehicles, name='vehicles'),
-    path('printticket/<str:pk>', views.printTicket, name='printticket')
+    path('printticket/<str:pk>', views.printTicket, name='printticket'),
+    path('participants/', views.participantsList, name='participants'),
 ]
