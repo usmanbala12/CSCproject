@@ -27,10 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = [
-   'https://cscproject-production.up.railway.app',
-]
-
 
 # Application definition
 
@@ -82,9 +78,13 @@ WSGI_APPLICATION = 'bms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'kdteqbeq',
+       'USER': 'kdteqbeq',
+       'PASSWORD': 'ztHUcC12X139LA4h7oo2jT0odzdXEz4c',
+       'HOST': 'lucky.db.elephantsql.com',
+       'PORT': '5432',
+   }
 }
 
 
