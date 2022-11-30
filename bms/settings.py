@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
-import os
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,11 +25,9 @@ SECRET_KEY = 'django-insecure-1)3rsj7t6!k32+5c253w3h=ws$y@v_!^2w7($v8wvpkznmqw&z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+import os
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://cscproject-production.up.railway.app',
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'base',
 ]
 
@@ -133,8 +131,14 @@ LOGIN_URL = 'login'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static")
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'ddadjscyp',
+    'API_KEY': '162945448663312',
+    'API_SECRET': 'XuDkDW7_mybLilvDR41JGuZ-FO0'
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
